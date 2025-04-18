@@ -267,6 +267,17 @@ function ProductList({ onHomeClick }) {
     // Get total count of all items
     const totalCartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
+    useEffect(() => {
+        const updatedAddedToCart = {};
+
+        cart.forEach((item) => {
+            updatedAddedToCart[item.name] = true;
+        });
+
+        setAddedToCart(updatedAddedToCart);
+    }, [cart]);
+
+
     return (
         <div>
             <div className="navbar" style={styleObj}>
