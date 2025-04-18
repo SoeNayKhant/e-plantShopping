@@ -267,6 +267,8 @@ function ProductList({ onHomeClick }) {
     // Get total count of all items
     const totalCartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
+    // Update addedToCart state whenever the cart changes
+    // This will ensure that if the cart is updated, the addedToCart state reflects the current items in the cart
     useEffect(() => {
         const updatedAddedToCart = {};
 
